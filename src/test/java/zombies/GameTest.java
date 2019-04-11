@@ -13,4 +13,12 @@ public class GameTest {
         int actual = game.getSurvivors();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenGameIsCreatedItIsAtBlueLevel() {
+        Game game = new Game();
+        String expected = "Blue";
+        String actual = game.getLevel();
+        assertEquals(expected, actual);
+    }
 }
