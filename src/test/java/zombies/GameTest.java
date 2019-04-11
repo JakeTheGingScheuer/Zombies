@@ -1,4 +1,4 @@
-package zombies;
+package zombies ;
 
 import org.junit.Before;
 import org.junit.Test;
