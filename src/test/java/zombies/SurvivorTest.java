@@ -36,7 +36,6 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorIsCreatedItHasAnInventory() {
-
         assertNotNull(subject.getInventory());
     }
 }
