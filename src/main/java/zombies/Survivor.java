@@ -1,17 +1,15 @@
 package zombies;
 
-import java.util.List;
-
 public class Survivor {
 
     private String name;
     private int wounds;
-    private String[] inventory;
+    private Inventory inventory;
 
-    public Survivor(String name) {
+    public Survivor(String name, Inventory inventory) {
         this.name = name;
         this.wounds = 0;
-        this.inventory = new String[5];
+        this.inventory = inventory;
     }
 
     public int getWounds() {
@@ -22,7 +20,7 @@ public class Survivor {
         return this.name;
     }
 
-    public int getInventorySlots() {
-        return inventory.length;
+    public Inventory getInventory() {
+        return this.inventory;
     }
 }

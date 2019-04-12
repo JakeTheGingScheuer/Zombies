@@ -2,16 +2,22 @@ package zombies;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 
 import static org.junit.Assert.*;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 public class SurvivorTest {
 
     Survivor subject;
 
+    @Mock
+    Inventory mockInventory;
+
     @Before
     public void setUp() throws Exception {
-        subject = new Survivor("Karl");
+        initMocks(this);
+        subject = new Survivor("Karl", mockInventory);
     }
 
     @Test
@@ -30,8 +36,7 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorIsCreatedItHasAnInventory() {
-        int expected = 5;
-        int actual = subject.getInventorySlots();
-        assertEquals(expected, actual);
+
+        assertNotNull(subject.getInventory());
     }
 }
