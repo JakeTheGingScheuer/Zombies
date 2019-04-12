@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ProgressionTest {
 
@@ -26,5 +27,10 @@ public class ProgressionTest {
         String expected = "Blue";
         String actual = subject.getCurrentLevel();
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void whenProgressionIsCreatedSoIsASkillTree() {
+        assertNotNull(subject.getSkillTree());
     }
 }
