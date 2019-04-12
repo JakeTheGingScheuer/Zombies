@@ -16,21 +16,18 @@ public class GameTest {
     @Mock
     Survivor mockSurvivor;
 
-    @Mock
-    List<Survivor> mockSurvivors;
 
     @Before
     public void setUp() {
         initMocks(this);
-        mockSurvivors.add(mockSurvivor);
-        subject = new Game(mockSurvivors);
+        subject = new Game();
     }
 
 
     @Test
     public void whenGameIsCreatedItHas0Survivors() {
         int expected = 0;
-        int actual = subject.getSurvivors();
+        int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
 
@@ -38,6 +35,14 @@ public class GameTest {
     public void whenGameIsCreatedItIsAtBlueLevel() {
         String expected = "Blue";
         String actual = subject.getLevel();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void whenAddSurvivorIsCalledAddsANewSurvivor() {
+        subject.addSurvivor(mockSurvivor);
+        int expected = 1;
+        int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
 }
