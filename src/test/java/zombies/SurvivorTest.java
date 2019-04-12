@@ -38,4 +38,9 @@ public class SurvivorTest {
     public void whenSurvivorIsCreatedItHasAnInventory() {
         assertNotNull(subject.getInventory());
     }
+
+    @Test
+    public void whenSurvivorIsCreatedItHasAProgressionObject() {
+        assertNotNull(subject.getProgression());
+    }
 }
