@@ -1,17 +1,25 @@
 package zombies;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Game {
-    private int numberOfSurvivors;
+    Set<Survivor> survivors;
 
     public Game() {
-        this.numberOfSurvivors = 0;
+        survivors = new HashSet<>();
     }
 
     public int getNumberOfSurvivors() {
-        return this.numberOfSurvivors;
+        return survivors.size();
     }
 
-    public void addSurvivor(Survivor survivor) {
-        numberOfSurvivors++;
+    public void addSurvivor(Survivor survivor) throws DuplicateNameException {
+
+        boolean added = survivors.add(survivor);
+        if(!added){
+            throw new DuplicateNameException(survivor.getName()+" is taken");
+        }
     }
 }
+
