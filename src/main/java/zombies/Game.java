@@ -5,25 +5,34 @@ import java.util.List;
 
 public class Game {
 
-    private List<String> survivorNames;
+    private List<Survivor> survivorList;
 
     public Game() {
-        this.survivorNames = new ArrayList<>();
+        this.survivorList = new ArrayList<>();
     }
 
     public int getNumberOfSurvivors() {
-        return survivorNames.size();
+        return survivorList.size();
     }
 
     public void addSurvivor(String name) {
-        if(survivorNames.contains(name)){
+        if(isAlreadyASurvivor(name)){
             return;
         }
-        survivorNames.add(name);
+        survivorList.add(new Survivor(name));
     }
 
-    public void killSurvivor(String survivorName) {
-        survivorNames.remove(survivorName);
+    private boolean isAlreadyASurvivor(String name) {
+        for(Survivor survivor : survivorList){
+            if(survivor.getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void killSurvivor(String name) {
+        survivorList.removeIf(survivor -> survivor.getName().equals(name));
     }
 
     public boolean isGameOver() {
