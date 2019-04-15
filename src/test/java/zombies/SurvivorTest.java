@@ -11,13 +11,10 @@ public class SurvivorTest {
 
     Survivor subject;
 
-    @Mock
-    Inventory mockInventory;
-
     @Before
     public void setUp() {
         initMocks(this);
-        subject = new Survivor("Karl", mockInventory);
+        subject = new Survivor("Karl");
     }
 
     @Test
@@ -29,7 +26,7 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorIsCreatedItHasAName() {
-        String expected = "Karl";
+        String expected = "KARL";
         String actual = subject.getName();
         assertEquals(expected, actual);
     }

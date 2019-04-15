@@ -7,10 +7,10 @@ public class Survivor {
     private Inventory inventory;
     private Progression progression;
 
-    public Survivor(String name, Inventory inventory) {
-        this.name = name;
+    public Survivor(String name) {
+        this.name = name.toUpperCase();
         this.wounds = 0;
-        this.inventory = inventory;
+        this.inventory = new Inventory();
         this.progression = new Progression();
     }
 

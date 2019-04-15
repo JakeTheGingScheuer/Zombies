@@ -7,11 +7,10 @@ public class Game {
 
     private String gameLevel;
     private List<Survivor> survivors;
-    private boolean gameOver;
 
     public Game(){
 
-        this.survivors = new ArrayList<Survivor>();
+        this.survivors = new ArrayList<>();
         this.gameLevel = "Blue";
     }
 
@@ -23,11 +22,10 @@ public class Game {
         return this.gameLevel;
     }
 
-    public void addSurvivor(Survivor survivor) {
-        this.survivors.add(survivor);
+    public void addSurvivor(String survivorName) {
+        if(!survivors.contains(survivorName.toUpperCase())){
+            this.survivors.add(new Survivor(survivorName));
+        }
     }
 
-    public boolean isGameOver() {
-        return this.gameOver;
-    }
 }

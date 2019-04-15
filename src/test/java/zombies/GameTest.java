@@ -2,22 +2,16 @@ package zombies ;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.MockitoAnnotations.initMocks;
+
 
 public class GameTest {
 
     Game subject;
 
-    @Mock
-    Survivor mockSurvivor;
-
-
     @Before
     public void setUp() {
-        initMocks(this);
         subject = new Game();
     }
 
@@ -38,16 +32,19 @@ public class GameTest {
 
     @Test
     public void whenAddSurvivorIsCalledAddsANewSurvivor() {
-        subject.addSurvivor(mockSurvivor);
+        subject.addSurvivor("fakeSurvivor");
         int expected = 1;
         int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void whenGameStartsASurvivorMustBeCreated() {
-        boolean expected = false;
-        boolean actual = subject.isGameOver();
+    public void whenAddingNewSurvivorNameMustBeUnique() {
+        subject.addSurvivor("jake");
+        subject.addSurvivor("jake");
+        int expected = 1;
+        int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
+
     }
 }
