@@ -70,4 +70,12 @@ public class SurvivorTest {
         Gary.kill();
         assertEquals(1, Gary.getCurrentXP());
     }
+
+    @Test
+    public void garyStillHasNotSlakedHisThirstForBlood() {
+        for (int i = 0; i < 7; i++){
+            Gary.kill();
+        }
+        assertEquals("Yellow", Gary.getCurrentLevel());
+    }
 }

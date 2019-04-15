@@ -71,5 +71,12 @@ public class Survivor {
 
     public void kill() {
         this.totalXP++;
+        updateLevel();
+    }
+
+    private void updateLevel() {
+        if(this.totalXP > 6){
+            this.level = "Yellow";
+        }
     }
 }
