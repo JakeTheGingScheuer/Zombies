@@ -15,7 +15,7 @@ public class SurvivorTest {
     Inventory mockInventory;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         initMocks(this);
         subject = new Survivor("Karl", mockInventory);
     }
