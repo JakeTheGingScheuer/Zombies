@@ -45,4 +45,11 @@ public class SurvivorTest {
         assertEquals(5, Gary.getInventorySlots());
 
     }
+
+    @Test
+    public void whenSurvivorIsWoundedTheyHaveFourEquipmentSlots() {
+        Gary.getsHurt();
+
+        assertEquals(4, Gary.getInventorySlots());
+    }
 }

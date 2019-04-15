@@ -25,8 +25,18 @@ public class Survivor {
     public void getsHurt() {
         if(wounded){
             dead = true;
+        } else {
+            this.inventory = reduceInventory();
         }
         wounded = true;
+    }
+
+    private String[] reduceInventory() {
+        String[] smallerInventory = new String[4];
+        for(int i = 0; i < smallerInventory.length; i++){
+            smallerInventory[i] = this.inventory[i];
+        }
+        return smallerInventory;
     }
 
     public boolean isDead() {
