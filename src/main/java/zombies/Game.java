@@ -7,8 +7,10 @@ public class Game {
 
     private String gameLevel;
     private List<Survivor> survivors;
+    private boolean gameOver;
 
     public Game(){
+
         this.survivors = new ArrayList<Survivor>();
         this.gameLevel = "Blue";
     }
@@ -23,5 +25,9 @@ public class Game {
 
     public void addSurvivor(Survivor survivor) {
         this.survivors.add(survivor);
+    }
+
+    public boolean isGameOver() {
+        return this.gameOver;
     }
 }

@@ -43,4 +43,11 @@ public class GameTest {
         int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenGameStartsASurvivorMustBeCreated() {
+        boolean expected = false;
+        boolean actual = subject.isGameOver();
+        assertEquals(expected, actual);
+    }
 }
