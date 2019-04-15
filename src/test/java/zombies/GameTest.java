@@ -42,8 +42,8 @@ public class GameTest {
     @Test
     public void whenSurvivorsAreExterminatedGameIsOver() {
         subject.addSurvivor("fake");
-        subject.killSurvivor("fake");
-
+        subject.woundSurvivor("fake");
+        subject.woundSurvivor("fake");
         assertTrue(subject.isGameOver());
     }
 }

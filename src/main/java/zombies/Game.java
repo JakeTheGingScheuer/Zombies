@@ -1,14 +1,14 @@
 package zombies;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
 
-    private List<Survivor> survivorList;
+    private Map<String, Survivor> survivorList;
 
     public Game() {
-        this.survivorList = new ArrayList<>();
+        this.survivorList = new HashMap<>();
     }
 
     public int getNumberOfSurvivors() {
@@ -16,23 +16,15 @@ public class Game {
     }
 
     public void addSurvivor(String name) {
-        if(isAlreadyASurvivor(name)){
-            return;
-        }
-        survivorList.add(new Survivor(name));
+        survivorList.put(name, new Survivor(name));
     }
 
-    private boolean isAlreadyASurvivor(String name) {
-        for(Survivor survivor : survivorList){
-            if(survivor.getName().equals(name)){
-                return true;
-            }
-        }
-        return false;
-    }
+    public void woundSurvivor(String name) {
+        survivorList.get(name).getsHurt();
 
-    public void killSurvivor(String name) {
-        survivorList.removeIf(survivor -> survivor.getName().equals(name));
+        if (survivorList.get(name).isDead()) {
+            survivorList.remove(name);
+        }
     }
 
     public boolean isGameOver() {
