@@ -78,4 +78,12 @@ public class SurvivorTest {
         }
         assertEquals("Yellow", Gary.getCurrentLevel());
     }
+
+    @Test
+    public void noOneCanStopTheGary() {
+        for (int i = 0; i < 19; i++){
+            Gary.kill();
+        }
+        assertEquals("Orange", Gary.getCurrentLevel());
+    }
 }
