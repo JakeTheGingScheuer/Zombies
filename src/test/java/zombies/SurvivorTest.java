@@ -7,9 +7,10 @@ import static org.junit.Assert.*;
 public class SurvivorTest {
 
     @Test
-    public void SurvivorStartsWithZeroWoundsAndAName() {
+    public void SurvivorStartsWithZeroWoundsANameAndThreeActions() {
         Survivor Gary = new Survivor("Gary");
 
+        assertEquals(3, Gary.getActionsPerTurn());
         assertFalse(Gary.isWounded());
         assertEquals("Gary", Gary.getName());
     }
@@ -32,5 +33,4 @@ public class SurvivorTest {
 
         assertTrue(Gary.isDead());
     }
-
 }

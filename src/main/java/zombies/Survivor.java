@@ -5,9 +5,11 @@ public class Survivor {
     private String name;
     private boolean wounded = false;
     private boolean dead = false;
+    private int actionsPerTurn;
 
     public Survivor(String name) {
         this.name = name;
+        this.actionsPerTurn = 3;
     }
 
     public boolean isWounded() {
@@ -27,5 +29,9 @@ public class Survivor {
 
     public boolean isDead() {
         return dead;
+    }
+
+    public int getActionsPerTurn() {
+        return actionsPerTurn;
     }
 }
