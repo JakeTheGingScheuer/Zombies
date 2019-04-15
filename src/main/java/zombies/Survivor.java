@@ -3,11 +3,11 @@ package zombies;
 public class Survivor {
 
     private String name;
-    private boolean wounded;
+    private boolean wounded = false;
+    private boolean dead = false;
 
     public Survivor(String name) {
         this.name = name;
-        this.wounded = false;
     }
 
     public boolean isWounded() {
@@ -19,6 +19,13 @@ public class Survivor {
     }
 
     public void getsHurt() {
+        if(wounded){
+            dead = true;
+        }
         wounded = true;
+    }
+
+    public boolean isDead() {
+        return dead;
     }
 }

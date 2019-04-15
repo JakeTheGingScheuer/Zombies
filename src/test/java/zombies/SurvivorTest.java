@@ -17,7 +17,20 @@ public class SurvivorTest {
     @Test
     public void whenSurvivorGetsHurtTheyAreWounded() {
         Survivor Gary = new Survivor("Gary");
+
         Gary.getsHurt();
+
         assertTrue(Gary.isWounded());
     }
+
+    @Test
+    public void whenWoundedSurvivorGetsHurtAgainTheyDie() {
+        Survivor Gary = new Survivor("Gary");
+
+        Gary.getsHurt();
+        Gary.getsHurt();
+
+        assertTrue(Gary.isDead());
+    }
+
 }
