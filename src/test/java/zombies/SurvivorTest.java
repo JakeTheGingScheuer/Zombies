@@ -13,4 +13,11 @@ public class SurvivorTest {
         assertFalse(Gary.isWounded());
         assertEquals("Gary", Gary.getName());
     }
+
+    @Test
+    public void whenSurvivorGetsHurtTheyAreWounded() {
+        Survivor Gary = new Survivor("Gary");
+        Gary.getsHurt();
+        assertTrue(Gary.isWounded());
+    }
 }
