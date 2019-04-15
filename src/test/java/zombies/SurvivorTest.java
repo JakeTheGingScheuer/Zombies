@@ -52,4 +52,9 @@ public class SurvivorTest {
 
         assertEquals(4, Gary.getInventorySlots());
     }
+
+    @Test
+    public void survivorHasTwoOnHandEquipmentSlots() {
+        assertEquals(2, Gary.countHands());
+    }
 }

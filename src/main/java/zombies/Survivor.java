@@ -6,12 +6,14 @@ public class Survivor {
     private boolean wounded = false;
     private boolean dead = false;
     private int actionsPerTurn;
-    private String[] inventory;
+    private String[] reserves;
+    private String[] hands;
 
     public Survivor(String name) {
         this.name = name;
         this.actionsPerTurn = 3;
-        this.inventory = new String[5];
+        this.reserves = new String[3];
+        this.hands = new String[2];
     }
 
     public boolean isWounded() {
@@ -26,15 +28,15 @@ public class Survivor {
         if(wounded){
             dead = true;
         } else {
-            this.inventory = reduceInventory();
+            this.reserves = reduceInventoryCapacity();
         }
         wounded = true;
     }
 
-    private String[] reduceInventory() {
-        String[] smallerInventory = new String[4];
+    private String[] reduceInventoryCapacity() {
+        String[] smallerInventory = new String[2];
         for(int i = 0; i < smallerInventory.length; i++){
-            smallerInventory[i] = this.inventory[i];
+            smallerInventory[i] = this.reserves[i];
         }
         return smallerInventory;
     }
@@ -48,6 +50,10 @@ public class Survivor {
     }
 
     public int getInventorySlots() {
-        return inventory.length;
+        return reserves.length + hands.length;
+    }
+
+    public int countHands() {
+        return hands.length;
     }
 }
