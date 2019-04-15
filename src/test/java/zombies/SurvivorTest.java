@@ -1,14 +1,21 @@
 package zombies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SurvivorTest {
 
+    Survivor Gary;
+
+    @Before
+    public void setUp() {
+       Gary = new Survivor("Gary");
+    }
+
     @Test
-    public void SurvivorStartsWithZeroWoundsANameAndThreeActions() {
-        Survivor Gary = new Survivor("Gary");
+    public void survivorStartsWithZeroWoundsANameAndThreeActions() {
 
         assertEquals(3, Gary.getActionsPerTurn());
         assertFalse(Gary.isWounded());
@@ -17,7 +24,6 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorGetsHurtTheyAreWounded() {
-        Survivor Gary = new Survivor("Gary");
 
         Gary.getsHurt();
 
@@ -26,11 +32,17 @@ public class SurvivorTest {
 
     @Test
     public void whenWoundedSurvivorGetsHurtAgainTheyDie() {
-        Survivor Gary = new Survivor("Gary");
 
         Gary.getsHurt();
         Gary.getsHurt();
 
         assertTrue(Gary.isDead());
+    }
+
+    @Test
+    public void whenSurvivorIsCreatedTheyHaveFiveEquipmentSlots() {
+
+        assertEquals(5, Gary.getInventorySlots());
+
     }
 }

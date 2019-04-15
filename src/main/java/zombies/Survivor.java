@@ -6,10 +6,12 @@ public class Survivor {
     private boolean wounded = false;
     private boolean dead = false;
     private int actionsPerTurn;
+    private String[] inventory;
 
     public Survivor(String name) {
         this.name = name;
         this.actionsPerTurn = 3;
+        this.inventory = new String[5];
     }
 
     public boolean isWounded() {
@@ -33,5 +35,9 @@ public class Survivor {
 
     public int getActionsPerTurn() {
         return actionsPerTurn;
+    }
+
+    public int getInventorySlots() {
+        return inventory.length;
     }
 }
