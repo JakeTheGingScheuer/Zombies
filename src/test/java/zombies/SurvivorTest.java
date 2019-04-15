@@ -57,4 +57,17 @@ public class SurvivorTest {
     public void survivorHasTwoOnHandEquipmentSlots() {
         assertEquals(2, Gary.countHands());
     }
+
+    @Test
+    public void survivorStartsWithZeroExperienceAndBlueLevel() {
+        assertEquals(0, Gary.getCurrentXP());
+        assertEquals("Blue", Gary.getCurrentLevel());
+    }
+
+    @Test
+    public void garyHasAThirstForBlood() {
+
+        Gary.kill();
+        assertEquals(1, Gary.getCurrentXP());
+    }
 }

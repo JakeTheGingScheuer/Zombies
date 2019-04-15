@@ -8,12 +8,16 @@ public class Survivor {
     private int actionsPerTurn;
     private String[] reserves;
     private String[] hands;
+    private int totalXP;
+    private String level;
 
     public Survivor(String name) {
         this.name = name;
         this.actionsPerTurn = 3;
         this.reserves = new String[3];
         this.hands = new String[2];
+        this.totalXP = 0;
+        this.level = "Blue";
     }
 
     public boolean isWounded() {
@@ -55,5 +59,17 @@ public class Survivor {
 
     public int countHands() {
         return hands.length;
+    }
+
+    public int getCurrentXP() {
+        return totalXP;
+    }
+
+    public String getCurrentLevel() {
+        return level;
+    }
+
+    public void kill() {
+        this.totalXP++;
     }
 }
