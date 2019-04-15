@@ -21,4 +21,12 @@ public class Game {
         }
         survivorNames.add(name);
     }
+
+    public void killSurvivor(String survivorName) {
+        survivorNames.remove(survivorName);
+    }
+
+    public boolean isGameOver() {
+        return getNumberOfSurvivors() == 0;
+    }
 }

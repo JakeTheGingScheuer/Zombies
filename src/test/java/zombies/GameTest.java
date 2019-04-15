@@ -38,4 +38,12 @@ public class GameTest {
         int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenSurvivorsAreExterminatedGameIsOver() {
+        subject.addSurvivor("fake");
+        subject.killSurvivor("fake");
+
+        assertTrue(subject.isGameOver());
+    }
 }
