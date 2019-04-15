@@ -16,6 +16,9 @@ public class Game {
     }
 
     public void addSurvivor(String name) {
+        if(survivorNames.contains(name)){
+            return;
+        }
         survivorNames.add(name);
     }
 }

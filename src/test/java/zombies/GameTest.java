@@ -29,4 +29,13 @@ public class GameTest {
         int actual = subject.getNumberOfSurvivors();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenAddSurvivorIsCalledWhenSurvivorNameAlreadyExistsNewSurvivorIsNotCreated() {
+        subject.addSurvivor("fake");
+        subject.addSurvivor("fake");
+        int expected = 1;
+        int actual = subject.getNumberOfSurvivors();
+        assertEquals(expected, actual);
+    }
 }
