@@ -81,5 +81,8 @@ public class Survivor {
         if(this.totalXP > 18){
             this.level = "Orange";
         }
+        if(this.totalXP > 42){
+            this.level = "Red";
+        }
     }
 }

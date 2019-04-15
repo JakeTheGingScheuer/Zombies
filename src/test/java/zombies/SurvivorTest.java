@@ -86,4 +86,13 @@ public class SurvivorTest {
         }
         assertEquals("Orange", Gary.getCurrentLevel());
     }
+
+    @Test
+    public void garysThirstIsAsMightyAsHisZombieKillingHands() {
+        for (int i = 0; i < 43; i++){
+            Gary.kill();
+        }
+        assertEquals("Red", Gary.getCurrentLevel());
+    }
+
 }
