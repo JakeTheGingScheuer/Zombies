@@ -75,14 +75,15 @@ public class Survivor {
     }
 
     private void updateLevel() {
-        if(this.totalXP > 6){
-            this.level = "Yellow";
-        }
-        if(this.totalXP > 18){
-            this.level = "Orange";
-        }
-        if(this.totalXP > 42){
-            this.level = "Red";
+        switch(totalXP) {
+            case 7:
+                this.level = "Yellow";
+                break;
+            case 19:
+                this.level = "Orange";
+                break;
+            case 43:
+                this.level = "Red";
         }
     }
 }
