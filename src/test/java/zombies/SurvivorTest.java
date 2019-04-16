@@ -43,4 +43,11 @@ public class SurvivorTest {
         subject.getsHurt();
         assertTrue(subject.isWounded());
     }
+
+    @Test
+    public void whenSurvivorIsHurtAndGetsHurtAgainTheyDie() {
+        subject.getsHurt();
+        subject.getsHurt();
+        assertTrue(subject.isDead());
+    }
 }

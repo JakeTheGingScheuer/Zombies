@@ -6,12 +6,14 @@ public class Survivor {
     private Inventory inventory;
     private Progression progression;
     private boolean wounded;
+    private boolean dead;
 
     public Survivor(String name) {
         this.name = name.toUpperCase();
         this.wounded = false;
         this.inventory = new Inventory();
         this.progression = new Progression();
+        this.dead = false;
     }
 
     public String getName() {
@@ -27,10 +29,17 @@ public class Survivor {
     }
 
     public void getsHurt() {
+        if(wounded){
+            this.dead = true;
+        }
         this.wounded = true;
     }
 
     public boolean isWounded() {
         return this.wounded;
+    }
+
+    public boolean isDead() {
+        return dead;
     }
 }

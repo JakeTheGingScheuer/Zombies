@@ -25,8 +25,8 @@ public class GameTest {
 
     @Test
     public void whenGameIsCreatedItIsAtBlueLevel() {
-        String expected = "Blue";
-        String actual = subject.getLevel();
+        Game.gameLevels expected = Game.gameLevels.Blue;
+        Game.gameLevels actual = subject.getLevel();
         assertEquals(expected, actual);
     }
 
