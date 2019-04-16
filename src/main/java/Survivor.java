@@ -1,14 +1,16 @@
+import java.util.ArrayList;
+
 public class Survivor {
     private String name;
     private int wounds;
-    private String[] equipmentInHand;
-    private String[] reserveEquipment;
+    private ArrayList<String> equipmentInHand;
+    private ArrayList<String> reserveEquipment;
 
     public Survivor(String name) {
         this.name = name;
         this.wounds = 0;
-        this.equipmentInHand = new String[0];
-        this.reserveEquipment = new String[0];
+        this.equipmentInHand = new ArrayList<>();
+        this.reserveEquipment = new ArrayList<>();
     }
 
     public String getName() {
@@ -32,10 +34,18 @@ public class Survivor {
     }
 
     public String[] getEquipmentInHand() {
-        return this.equipmentInHand;
+        return this.equipmentInHand.stream().toArray(String[]::new);
     }
 
     public String[] getReserveEquipment() {
-        return this.reserveEquipment;
+        return this.reserveEquipment.stream().toArray(String[]::new);
+    }
+
+    public void pickUpEquipment(String equipment) {
+        this.equipmentInHand.add(equipment);
+    }
+
+    public void putInPack(String equipment) {
+        this.reserveEquipment.add(equipment);
     }
 }

@@ -50,5 +50,15 @@ public class SurvivorTest {
 
     }
 
+    @Test
+    public void whenPickUpEquipmentIsCalledEquipmentIsAddedToInHand() {
+        survivor.pickUpEquipment("baseball bat");
+        assertArrayEquals(new String[] {"baseball bat" }, survivor.getEquipmentInHand());
+    }
 
+    @Test
+    public void whenPutInPackThenEquipmentIsAddedToReserve() {
+        survivor.putInPack("baseball bat");
+        assertArrayEquals(new String[] {"baseball bat"}, survivor.getReserveEquipment());
+    }
 }
