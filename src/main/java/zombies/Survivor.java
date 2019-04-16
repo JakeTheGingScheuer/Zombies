@@ -7,6 +7,7 @@ public class Survivor {
     private Progression progression;
     private boolean wounded;
     private boolean dead;
+    private int numberOfActions;
 
     public Survivor(String name) {
         this.name = name.toUpperCase();
@@ -14,6 +15,7 @@ public class Survivor {
         this.inventory = new Inventory();
         this.progression = new Progression();
         this.dead = false;
+        this.numberOfActions = 3;
     }
 
     public String getName() {
@@ -40,6 +42,10 @@ public class Survivor {
     }
 
     public boolean isDead() {
-        return dead;
+        return this.dead;
+    }
+
+    public int getNumberOfActions() {
+        return this.numberOfActions;
     }
 }

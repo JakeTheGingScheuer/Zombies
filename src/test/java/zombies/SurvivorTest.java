@@ -50,4 +50,11 @@ public class SurvivorTest {
         subject.getsHurt();
         assertTrue(subject.isDead());
     }
+
+    @Test
+    public void whenSurvivorIsCreatedItHasThreeActionsAvailablePerTurn() {
+        int expected = 3;
+        int actual =  subject.getNumberOfActions();
+        assertEquals(expected, actual);
+    }
 }
