@@ -25,8 +25,12 @@ public class SurvivorTest {
         survivor.injure();
         survivor.injure();
 
-        assertFalse(survivor.isAlive());
+        assertTwoWoundsDies();
+    }
 
+    private void assertTwoWoundsDies() {
+        assertFalse(survivor.isAlive());
+        assertEquals(2, survivor.getNumberOfWounds());
     }
 
     @Test

@@ -12,7 +12,7 @@ public class Survivor {
     }
 
     public int getNumberOfWounds() {
-        return 0;
+        return this.wounds;
     }
 
     public void injure() {
