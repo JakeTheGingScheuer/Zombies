@@ -1,37 +1,35 @@
 package zombies;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StatusTest {
 
-    Status subject;
+    Status status = new Status();
 
-    @Before
-    public void setUp() {
-        subject = new Status();
+    @Test
+    public void whenStatusIsCreatedWoundedIsFalse() {
+        assertFalse(status.isWounded());
     }
 
     @Test
-    public void whenGetsHurtIsCalledWoundedIsSetToTrue() {
-        subject.addWound();
-        assertTrue(subject.isWounded());
+    public void whenAddWoundIsCalledWoundedIsSetToTrue() {
+        status.addWound();
+        assertTrue(status.isWounded());
     }
 
     @Test
-    public void whenHurtIsCalledWhileWoundedIsTrueDeadIsTrue() {
-        subject.addWound();
-        subject.addWound();
-        assertTrue(subject.isDead());
+    public void whenAddWoundIsCalledWhileWoundedIsTrueDeadIsTrue() {
+        status.addWound();
+        status.addWound();
+        assertTrue(status.isDead());
     }
 
     @Test
     public void whenStatusIsCreatedItHasThreeActionsAvailablePerTurn() {
         int expected = 3;
-        int actual =  subject.getNumberOfActions();
+        int actual =  status.getNumberOfActions();
         assertEquals(expected, actual);
     }
 }
