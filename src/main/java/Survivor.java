@@ -42,10 +42,18 @@ public class Survivor {
     }
 
     public void pickUpEquipment(String equipment) {
-        this.equipmentInHand.add(equipment);
+        if(this.equipmentInHand.size() < 2) {
+            this.equipmentInHand.add(equipment);
+        }
     }
 
     public void putInPack(String equipment) {
-        this.reserveEquipment.add(equipment);
+        if(this.reserveEquipment.size() < maxAllowedReserve()){
+            this.reserveEquipment.add(equipment);
+        }
+    }
+
+    private int maxAllowedReserve() {
+        return 5 - this.equipmentInHand.size();
     }
 }

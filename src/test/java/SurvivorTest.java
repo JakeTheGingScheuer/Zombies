@@ -47,7 +47,6 @@ public class SurvivorTest {
     public void whenASurvivorIsCreatedItCarriesNoEquipment() {
         assertEquals(0, survivor.getEquipmentInHand().length);
         assertEquals(0, survivor.getReserveEquipment().length);
-
     }
 
     @Test
@@ -60,5 +59,36 @@ public class SurvivorTest {
     public void whenPutInPackThenEquipmentIsAddedToReserve() {
         survivor.putInPack("baseball bat");
         assertArrayEquals(new String[] {"baseball bat"}, survivor.getReserveEquipment());
+    }
+
+    @Test
+    public void whenTwoItemsAreInHandAndPickUpIsCalledNothingHappens() {
+        survivor.pickUpEquipment("fake1");
+        survivor.pickUpEquipment("fake2");
+        survivor.pickUpEquipment("fake3");
+        assertArrayEquals(new String[] {"fake1", "fake2"}, survivor.getEquipmentInHand());
+    }
+
+    @Test
+    public void whenFiveItemsAreInReserveThenPutInPackDoesNothing() {
+        survivor.putInPack("fake1");
+        survivor.putInPack("fake2");
+        survivor.putInPack("fake3");
+        survivor.putInPack("fake4");
+        survivor.putInPack("fake5");
+        survivor.putInPack("fake6");
+        assertArrayEquals(new String[] {"fake1", "fake2", "fake3", "fake4", "fake5"}, survivor.getReserveEquipment());
+
+    }
+
+    @Test
+    public void whenTwoItemsAreInHandAndThreeInPackPutInPackDoesNothing() {
+        survivor.pickUpEquipment("fake1");
+        survivor.pickUpEquipment("fake2");
+        survivor.putInPack("fake3");
+        survivor.putInPack("fake4");
+        survivor.putInPack("fake5");
+        survivor.putInPack("fake6");
+        assertArrayEquals(new String[] {"fake3", "fake4", "fake5"}, survivor.getReserveEquipment());
     }
 }
