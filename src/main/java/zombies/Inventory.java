@@ -2,13 +2,28 @@ package zombies;
 
 public class Inventory {
 
-    private String[] inventory;
+    private String[] inHand;
+    private String[] reserve;
 
     public Inventory() {
-        inventory = new String[5];
+        inHand = new String[2];
+        reserve = new String[3];
     }
 
-    public int getSlots() {
-        return inventory.length;
+    public int getTotalSlots() {
+        return inHand.length + reserve.length;
+    }
+
+    public int getInHandSlots() {
+        return inHand.length;
+    }
+
+    public int getReserveSlots() {
+        return reserve.length;
+    }
+
+    public void decreaseCapacity() {
+        String[] reducedInventory = new String[] {reserve[0], reserve[1]};
+        this.reserve = reducedInventory;
     }
 }

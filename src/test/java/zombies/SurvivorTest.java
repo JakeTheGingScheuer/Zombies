@@ -57,4 +57,12 @@ public class SurvivorTest {
         int actual =  subject.getNumberOfActions();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenSurvivorIsWoundedReserveOnlyHas2Slots() {
+        subject.getsHurt();
+        int expected = 2;
+        int actual = subject.getInventory().getReserveSlots();
+        assertEquals(expected, actual);
+    }
 }

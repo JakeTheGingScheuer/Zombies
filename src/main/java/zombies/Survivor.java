@@ -33,8 +33,10 @@ public class Survivor {
     public void getsHurt() {
         if(wounded){
             this.dead = true;
+            return;
         }
         this.wounded = true;
+        this.inventory.decreaseCapacity();
     }
 
     public boolean isWounded() {
