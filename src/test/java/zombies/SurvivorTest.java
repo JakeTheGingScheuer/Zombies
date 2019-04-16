@@ -13,15 +13,12 @@ public class SurvivorTest {
 
     @Before
     public void setUp() {
-        initMocks(this);
         subject = new Survivor("Karl");
     }
 
     @Test
-    public void whenSurvivorIsCreatedItHas0Wounds() {
-        int expected = 0;
-        int actual = subject.getWounds();
-        assertEquals(expected, actual);
+    public void whenSurvivorIsCreatedItIsNotWounded() {
+        assertFalse(subject.isWounded());
     }
 
     @Test
@@ -39,5 +36,11 @@ public class SurvivorTest {
     @Test
     public void whenSurvivorIsCreatedItHasAProgressionObject() {
         assertNotNull(subject.getProgression());
+    }
+
+    @Test
+    public void whenGetsHurtIsCalledWoundedIsSetToTrue() {
+        subject.getsHurt();
+        assertTrue(subject.isWounded());
     }
 }

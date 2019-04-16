@@ -1,16 +1,16 @@
 package zombies;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
 
     private String gameLevel;
-    private List<Survivor> survivors;
+    private Map<String, Survivor> survivors;
 
     public Game(){
 
-        this.survivors = new ArrayList<>();
+        this.survivors = new HashMap<>();
         this.gameLevel = "Blue";
     }
 
@@ -23,9 +23,7 @@ public class Game {
     }
 
     public void addSurvivor(String survivorName) {
-        if(!survivors.contains(survivorName.toUpperCase())){
-            this.survivors.add(new Survivor(survivorName));
-        }
+        survivors.put(survivorName, new Survivor(survivorName));
     }
 
 }
