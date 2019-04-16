@@ -5,17 +5,13 @@ public class Survivor {
     private String name;
     private Inventory inventory;
     private Progression progression;
-    private boolean wounded;
-    private boolean dead;
-    private int numberOfActions;
+    private Status status;
 
     public Survivor(String name) {
         this.name = name.toUpperCase();
-        this.wounded = false;
+        this.status = new Status();
         this.inventory = new Inventory();
         this.progression = new Progression();
-        this.dead = false;
-        this.numberOfActions = 3;
     }
 
     public String getName() {
@@ -30,24 +26,11 @@ public class Survivor {
         return this.progression;
     }
 
+    public Status getStatus() { return this.status; }
+
     public void getsHurt() {
-        if(wounded){
-            this.dead = true;
-            return;
-        }
-        this.wounded = true;
+        this.status.addWound();
         this.inventory.decreaseCapacity();
     }
 
-    public boolean isWounded() {
-        return this.wounded;
-    }
-
-    public boolean isDead() {
-        return this.dead;
-    }
-
-    public int getNumberOfActions() {
-        return this.numberOfActions;
-    }
 }

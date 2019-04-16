@@ -9,6 +9,8 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class SurvivorTest {
 
+
+
     Survivor subject;
 
     @Before
@@ -18,7 +20,7 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorIsCreatedItIsNotWounded() {
-        assertFalse(subject.isWounded());
+        assertFalse(subject.getStatus().isWounded());
     }
 
     @Test
@@ -39,22 +41,27 @@ public class SurvivorTest {
     }
 
     @Test
+    public void whenSurvivorIsCreatedItHasAStatusObject() {
+        assertNotNull(subject.getStatus());
+    }
+
+    @Test
     public void whenGetsHurtIsCalledWoundedIsSetToTrue() {
         subject.getsHurt();
-        assertTrue(subject.isWounded());
+        assertTrue(subject.getStatus().isWounded());
     }
 
     @Test
     public void whenSurvivorIsHurtAndGetsHurtAgainTheyDie() {
         subject.getsHurt();
         subject.getsHurt();
-        assertTrue(subject.isDead());
+        assertTrue(subject.getStatus().isDead());
     }
 
     @Test
     public void whenSurvivorIsCreatedItHasThreeActionsAvailablePerTurn() {
         int expected = 3;
-        int actual =  subject.getNumberOfActions();
+        int actual =  subject.getStatus().getNumberOfActions();
         assertEquals(expected, actual);
     }
 
