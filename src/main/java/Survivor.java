@@ -22,4 +22,8 @@ public class Survivor {
     public boolean isAlive() {
         return this.wounds < 2;
     }
+
+    public int getNumberOfActionsPerTurn() {
+        return 3;
+    }
 }

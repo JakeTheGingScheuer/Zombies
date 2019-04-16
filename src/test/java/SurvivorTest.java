@@ -37,4 +37,9 @@ public class SurvivorTest {
     public void whenSurvivorIsCreatedItIsAlive () {
         assertTrue(survivor.isAlive());
     }
+
+    @Test
+    public void whenASurvivorIsCreatedTheyHaveThreeActionsPerTurn() {
+        assertEquals(3, survivor.getNumberOfActionsPerTurn());
+    }
 }
