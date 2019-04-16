@@ -42,4 +42,13 @@ public class SurvivorTest {
     public void whenASurvivorIsCreatedTheyHaveThreeActionsPerTurn() {
         assertEquals(3, survivor.getNumberOfActionsPerTurn());
     }
+
+    @Test
+    public void whenASurvivorIsCreatedItCarriesNoEquipment() {
+        assertEquals(0, survivor.getEquipmentInHand().length);
+        assertEquals(0, survivor.getReserveEquipment().length);
+
+    }
+
+
 }
