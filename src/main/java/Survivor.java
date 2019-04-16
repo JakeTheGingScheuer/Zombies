@@ -20,6 +20,6 @@ public class Survivor {
     }
 
     public boolean isAlive() {
-        return false;
+        return this.wounds < 2;
     }
 }

@@ -1,8 +1,7 @@
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 
 public class SurvivorTest {
@@ -28,5 +27,10 @@ public class SurvivorTest {
 
         assertFalse(survivor.isAlive());
 
+    }
+
+    @Test
+    public void whenSurvivorIsCreatedItIsAlive () {
+        assertTrue(survivor.isAlive());
     }
 }
