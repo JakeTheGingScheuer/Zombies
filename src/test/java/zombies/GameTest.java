@@ -65,4 +65,44 @@ public class GameTest {
         assertTrue(game.isGameOver());
 
     }
+
+    @Test
+    public void gameLevelIsBlueWithOneSurvivorWithSixXp() {
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        multipleKills(fakeSurvivor, 6);
+        assertEquals(Progression.level.BLUE, game.getLevel());
+
+    }
+
+    private void multipleKills(Survivor fakeSurvivor, int numberOfKills) {
+        for(int i = 0; i < numberOfKills; i++) fakeSurvivor.killZombie();
+    }
+
+    @Test
+    public void gameLevelIsYellowWithOneSurvivorWithSevenXp() {
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        multipleKills(fakeSurvivor, 7);
+        assertEquals(Progression.level.YELLOW, game.getLevel());
+
+    }
+
+    @Test
+    public void gameLevelIsOrangeWithOneSurvivorWithNineteenXp() {
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        multipleKills(fakeSurvivor, 19);
+        assertEquals(Progression.level.ORANGE, game.getLevel());
+
+    }
+
+    @Test
+    public void gameLevelIsRedWithOneSurvivorWithFourtyThreeXp() {
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        multipleKills(fakeSurvivor, 43);
+        assertEquals(Progression.level.RED, game.getLevel());
+
+    }
 }

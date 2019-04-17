@@ -2,6 +2,7 @@ package zombies;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Game {
 
@@ -20,7 +21,10 @@ public class Game {
     }
 
     public Progression.level getLevel() {
+
+        updateLevel();
         return this.gameLevel;
+
     }
 
     public void addSurvivor(String survivorName) {
@@ -28,9 +32,14 @@ public class Game {
     }
 
     public boolean isGameOver() {
+
         if(survivors.isEmpty() ||  getDeathToll() < survivors.size())
             return false;
         else return true;
+    }
+
+    public Survivor selectSurvivor(String name) {
+        return survivors.get(name);
     }
 
     private int getDeathToll() {
@@ -43,8 +52,13 @@ public class Game {
         return deathToll;
     }
 
-    public Survivor selectSurvivor(String name) {
-        return survivors.get(name);
-    }
+    private void updateLevel(){
+        int highestXp = 0;
+        for(Survivor survivor: survivors.values()) {
+            int thisXp = survivor.getProgression().getCurrentXp();
 
+            if(thisXp > highestXp)
+                gameLevel = survivor.getProgression().getCurrentLevel();
+        }
+    }
 }
