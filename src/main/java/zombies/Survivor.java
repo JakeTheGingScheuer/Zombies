@@ -8,7 +8,7 @@ public class Survivor {
     private Status status;
 
     public Survivor(String name) {
-        this.name = name.toUpperCase();
+        this.name = name;
         this.status = new Status();
         this.inventory = new Inventory();
         this.progression = new Progression();

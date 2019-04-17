@@ -1,8 +1,9 @@
 package zombies ;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class GameTest {
 
@@ -37,6 +38,31 @@ public class GameTest {
         int expected = 1;
         int actual = game.getNumberOfSurvivors();
         assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void whenGameIsStartedWithZeroSurvivorsGameOverIsFalse() {
+        assertFalse(game.isGameOver());
+    }
+
+    @Test
+    public void whenSelectSurvivorIsCalledReturnsSurvivor() {
+
+        String expected = "fake";
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        assertEquals(expected, fakeSurvivor.getName());
+
+    }
+
+    @Test
+    public void whenAllSurvivorsAreDeadGameOverIsTrue() {
+        game.addSurvivor("fake");
+        Survivor fakeSurvivor = game.selectSurvivor("fake");
+        fakeSurvivor.getsHurt();
+        fakeSurvivor.getsHurt();
+        assertTrue(game.isGameOver());
 
     }
 }

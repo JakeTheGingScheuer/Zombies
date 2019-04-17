@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Game {
 
+
     enum gameLevels {Blue, Yellow, Orange, Red};
 
     private gameLevels gameLevel;
@@ -14,6 +15,7 @@ public class Game {
 
         this.survivors = new HashMap<>();
         this.gameLevel = gameLevels.Blue;
+
     }
 
     public int getNumberOfSurvivors() {
@@ -26,6 +28,26 @@ public class Game {
 
     public void addSurvivor(String survivorName) {
         survivors.put(survivorName, new Survivor(survivorName));
+    }
+
+    public boolean isGameOver() {
+        if(survivors.isEmpty() ||  getDeathToll() < survivors.size())
+            return false;
+        else return true;
+    }
+
+    private int getDeathToll() {
+        int deathToll = 0;
+        for(Survivor survivor: survivors.values()) {
+            if(survivor.getStatus().isDead()) {
+                deathToll++;
+            }
+        }
+        return deathToll;
+    }
+
+    public Survivor selectSurvivor(String name) {
+        return survivors.get(name);
     }
 
 }

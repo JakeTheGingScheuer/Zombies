@@ -10,7 +10,7 @@ public class SurvivorTest {
 
     @Test
     public void whenSurvivorIsCreatedItHasAName() {
-        String expected = "KARL";
+        String expected = "Karl";
         String actual = survivor.getName();
         assertEquals(expected, actual);
     }
