@@ -26,4 +26,8 @@ public class Progression {
     public SkillTree getSkillTree() {
         return this.skillTree;
     }
+
+    public void addXp() {
+        this.xp++;
+    }
 }

@@ -27,4 +27,10 @@ public class ProgressionTest {
     public void whenProgressionIsCreatedSoIsASkillTree() {
         assertNotNull(progression.getSkillTree());
     }
+
+    @Test
+    public void whenAddXpIsCalledItAddsOneToCurrentXP() {
+        progression.addXp();
+        assertEquals(progression.getCurrentXp(), 1);
+    }
 }

@@ -33,4 +33,7 @@ public class Survivor {
         this.inventory.decreaseCapacity();
     }
 
+    public void killZombie() {
+        this.progression.addXp();
+    }
 }

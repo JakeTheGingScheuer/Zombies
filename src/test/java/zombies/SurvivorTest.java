@@ -38,4 +38,12 @@ public class SurvivorTest {
         int actual = survivor.getInventory().getReserveSlots();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void whenKillZombieIsCalledProgressionAddsOneXp() {
+        survivor.killZombie();
+        int expected = 1;
+        int actual = survivor.getProgression().getCurrentXp();
+        assertEquals(expected, actual);
+    }
 }
