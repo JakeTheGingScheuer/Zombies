@@ -20,6 +20,8 @@ public class Progression {
 
     public String getCurrentLevel() {
 
+        if(this.xp > 6) this.currentLevel = "Yellow";
+
         return this.currentLevel;
     }
 

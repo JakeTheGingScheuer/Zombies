@@ -33,4 +33,16 @@ public class ProgressionTest {
         progression.addXp();
         assertEquals(progression.getCurrentXp(), 1);
     }
+
+    @Test
+    public void whenXpIsAtSevenLevelIsYellow() {
+        addMultipleXp(7);
+        assertEquals(progression.getCurrentLevel(), "Yellow");
+    }
+
+    private void addMultipleXp(int number) {
+        for (int i = 0; i < number; i++){
+            progression.addXp();
+        }
+    }
 }
