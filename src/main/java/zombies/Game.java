@@ -20,12 +20,10 @@ public class Game {
         return this.survivors.size();
     }
 
-    public Progression.level getLevel() {
-
-        updateLevel();
-        return this.gameLevel;
-
+    public Survivor selectSurvivor(String name) {
+        return survivors.get(name);
     }
+
 
     public void addSurvivor(String survivorName) {
         survivors.put(survivorName, new Survivor(survivorName));
@@ -38,10 +36,6 @@ public class Game {
         else return true;
     }
 
-    public Survivor selectSurvivor(String name) {
-        return survivors.get(name);
-    }
-
     private int getDeathToll() {
         int deathToll = 0;
         for(Survivor survivor: survivors.values()) {
@@ -50,6 +44,13 @@ public class Game {
             }
         }
         return deathToll;
+    }
+
+    public Progression.level getLevel() {
+
+        updateLevel();
+        return this.gameLevel;
+
     }
 
     private void updateLevel(){
