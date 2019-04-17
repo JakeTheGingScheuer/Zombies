@@ -105,4 +105,15 @@ public class GameTest {
         assertEquals(Progression.level.RED, game.getLevel());
 
     }
+
+    @Test
+    public void gameLevelIsOrangeWithTwoSurvivorsAtYellowAndOrange() {
+        game.addSurvivor("fake");
+        game.addSurvivor("fake2");
+        Survivor fake1 = game.selectSurvivor("fake");
+        Survivor fake2 = game.selectSurvivor("fake2");
+        multipleKills(fake1, 14);
+        multipleKills(fake2, 38);
+        assertEquals(Progression.level.ORANGE, game.getLevel());
+    }
 }

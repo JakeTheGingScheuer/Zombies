@@ -58,8 +58,10 @@ public class Game {
         for(Survivor survivor: survivors.values()) {
             int thisXp = survivor.getProgression().getCurrentXp();
 
-            if(thisXp > highestXp)
+            if(thisXp > highestXp) {
+                highestXp = thisXp;
                 gameLevel = survivor.getProgression().getCurrentLevel();
+            }
         }
     }
 }
