@@ -18,8 +18,8 @@ public class GameTest {
 
     @Test
     public void whenGameIsCreatedItIsAtBlueLevel() {
-        Game.gameLevels expected = Game.gameLevels.Blue;
-        Game.gameLevels actual = game.getLevel();
+        Progression.level expected = Progression.level.BLUE;
+        Progression.level actual = game.getLevel();
         assertEquals(expected, actual);
     }
 

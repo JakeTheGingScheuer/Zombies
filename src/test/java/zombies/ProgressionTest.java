@@ -17,9 +17,9 @@ public class ProgressionTest {
     }
 
     @Test
-    public void whenProgressionIsCreatedLevelIsAtBlue() {
-        String expected = "Blue";
-        String actual = progression.getCurrentLevel();
+    public void whenProgressionIsCreatedLevelIsAtBlue(){
+        Progression.level expected = Progression.level.BLUE;
+        Progression.level actual = progression.getCurrentLevel();
         assertEquals(expected, actual);
     }
 
@@ -33,12 +33,24 @@ public class ProgressionTest {
         progression.addXp();
         assertEquals(progression.getCurrentXp(), 1);
     }
-
     @Test
     public void whenXpIsAtSevenLevelIsYellow() {
         addMultipleXp(7);
-        assertEquals(progression.getCurrentLevel(), "Yellow");
+        assertEquals(Progression.level.YELLOW, progression.getCurrentLevel());
     }
+
+    @Test
+    public void whenXpIsAtNineteenLevelIsOrange() {
+        addMultipleXp(19);
+        assertEquals(Progression.level.ORANGE, progression.getCurrentLevel());
+    }
+
+    @Test
+    public void whenXpIsAtFourtyThreeLevelIsRed() {
+        addMultipleXp(43);
+        assertEquals(Progression.level.RED, progression.getCurrentLevel());
+    }
+
 
     private void addMultipleXp(int number) {
         for (int i = 0; i < number; i++){

@@ -5,16 +5,13 @@ import java.util.Map;
 
 public class Game {
 
-
-    enum gameLevels {Blue, Yellow, Orange, Red};
-
-    private gameLevels gameLevel;
     private Map<String, Survivor> survivors;
+    private Progression.level gameLevel;
 
     public Game(){
 
         this.survivors = new HashMap<>();
-        this.gameLevel = gameLevels.Blue;
+        this.gameLevel = Progression.level.BLUE;
 
     }
 
@@ -22,7 +19,7 @@ public class Game {
         return this.survivors.size();
     }
 
-    public gameLevels getLevel() {
+    public Progression.level getLevel() {
         return this.gameLevel;
     }
 
