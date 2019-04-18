@@ -60,7 +60,7 @@ public class Game {
 
             if(thisXp > highestXp) {
                 highestXp = thisXp;
-                gameLevel = survivor.getProgression().getCurrentLevel();
+                this.gameLevel = survivor.getProgression().getCurrentLevel();
             }
         }
     }
