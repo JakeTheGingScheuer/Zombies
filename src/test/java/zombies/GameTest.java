@@ -116,4 +116,9 @@ public class GameTest {
         multipleKills(fake2, 38);
         assertEquals(Progression.level.ORANGE, game.getLevel());
     }
+
+    @Test
+    public void whenAGameIsCreatedItHasAHistory() {
+        assertNotNull(game.getHistory());
+    }
 }

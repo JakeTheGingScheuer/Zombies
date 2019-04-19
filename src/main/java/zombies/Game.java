@@ -1,5 +1,7 @@
 package zombies;
 
+import sun.jvm.hotspot.ui.HistoryComboBox;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -8,11 +10,13 @@ public class Game {
 
     private Map<String, Survivor> survivors;
     private Progression.level gameLevel;
+    private History history;
 
     public Game(){
 
         this.survivors = new HashMap<>();
         this.gameLevel = Progression.level.BLUE;
+        this.history = new History();
 
     }
 
@@ -63,5 +67,9 @@ public class Game {
                 this.gameLevel = survivor.getProgression().getCurrentLevel();
             }
         }
+    }
+
+    public History getHistory() {
+        return this.history;
     }
 }
