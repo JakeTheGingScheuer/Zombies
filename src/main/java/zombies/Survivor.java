@@ -36,4 +36,12 @@ public class Survivor {
     public void killZombie() {
         this.progression.addXp();
     }
+
+    public void pickUpItem(String item, boolean equip) {
+        if(equip){
+            this.inventory.equip(item);
+        } else {
+            this.inventory.putInPack(item);
+        }
+    }
 }

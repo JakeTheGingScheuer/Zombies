@@ -24,4 +24,8 @@ public class HistoryTest {
         assertEquals(fakeTime , history.getStartTime());
 
     }
+
+    @Test
+    public void whenASurvivorIsAddedToGameANoteIsAdded() {
+    }
 }

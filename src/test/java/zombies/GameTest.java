@@ -2,6 +2,9 @@ package zombies ;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.cglib.core.Local;
+
+import java.time.LocalTime;
 
 import static org.junit.Assert.*;
 
@@ -118,7 +121,29 @@ public class GameTest {
     }
 
     @Test
-    public void whenAGameIsCreatedItHasAHistory() {
-        assertNotNull(game.getHistory());
+    public void whenAGameIsCreatedItRecordsAStartTime() {
+        assertNotNull(game.getStartTime());
+    }
+
+    @Test
+    public void whenASurvivorIsAddedToTheGameThenLogRecordsIt() {
+        game.addSurvivor("fake");
+
+        Object[] actual = game.getHistoryLog().values().toArray();
+        Object[] expected = {"The Game Has Begun" , "A survivor was added"};
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Ignore
+    @Test
+    public void whenASurvivorAddsANewPieceOfEquipmentLogRecordsIt() {
+        game.addSurvivor("fake");
+        game.selectSurvivor("fake").pickUpItem("fakeBat", true);
+
+        Object[] actual = game.getHistoryLog().values().toArray();
+        Object[] expected = {"The Game Has Begun" , "A survivor was added", "fake picked up a fakeBat"};
+
+        assertArrayEquals(expected, actual);
     }
 }

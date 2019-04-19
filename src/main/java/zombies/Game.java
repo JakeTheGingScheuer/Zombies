@@ -1,22 +1,22 @@
 package zombies;
 
-import sun.jvm.hotspot.ui.HistoryComboBox;
-
+import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 public class Game {
 
     private Map<String, Survivor> survivors;
     private Progression.level gameLevel;
-    private History history;
+    private LinkedHashMap<LocalTime, String> historyLog;
 
     public Game(){
 
         this.survivors = new HashMap<>();
         this.gameLevel = Progression.level.BLUE;
-        this.history = new History();
+        this.historyLog = new LinkedHashMap<>();
+        this.historyLog.put(LocalTime.now(), "The Game Has Begun");
 
     }
 
@@ -30,7 +30,9 @@ public class Game {
 
 
     public void addSurvivor(String survivorName) {
+
         survivors.put(survivorName, new Survivor(survivorName));
+        historyLog.put(LocalTime.now().plusNanos(500), "A survivor was added");
     }
 
     public boolean isGameOver() {
@@ -69,7 +71,13 @@ public class Game {
         }
     }
 
-    public History getHistory() {
-        return this.history;
+    public LocalTime getStartTime() {
+        return this.historyLog.entrySet().iterator().next().getKey();
     }
+
+    public Map<LocalTime, String> getHistoryLog() {
+        return this.historyLog;
+    }
+
+
 }

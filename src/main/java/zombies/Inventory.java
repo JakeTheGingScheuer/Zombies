@@ -26,4 +26,12 @@ public class Inventory {
         String[] reducedInventory = new String[] {reserve[0], reserve[1]};
         this.reserve = reducedInventory;
     }
+
+    public void equip(String item) {
+        this.inHand[0] = item;
+    }
+
+    public void putInPack(String item) {
+        this.reserve[0] = item;
+    }
 }
