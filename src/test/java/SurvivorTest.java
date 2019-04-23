@@ -38,7 +38,7 @@ public class SurvivorTest {
 
     @Test
     public void survivorCanCarryFivePiecesOfEquipment() {
-        assertEquals(5, survivor.getNumberOfAvailableInventorySlots());
+        assertEquals(5, survivor.getMaxCapacity());
     }
 
     @Test
@@ -61,5 +61,22 @@ public class SurvivorTest {
         survivor.equipItem("fakeTorch");
         survivor.equipItem("fakeMedKit");
         assertArrayEquals(new String[]{"fakeMedKit"}, survivor.getReserveInventory().toArray());
+    }
+
+    @Test
+    public void whenASurvivorIsWoundedReserveCapacityIsReducedByOne() {
+        survivor.getsHurt();
+        assertEquals(4, survivor.getMaxCapacity());
+    }
+
+    @Test
+    public void whenASurvivorIsCarryingFiveItemsAndGetsHurtTheyMustDropOne() {
+        survivor.putItemInPack("1");
+        survivor.putItemInPack("2");
+        survivor.putItemInPack("3");
+        survivor.equipItem("4");
+        survivor.equipItem("5");
+        survivor.getsHurt();
+        assertArrayEquals(new String[]{"1", "2"}, survivor.getReserveInventory().toArray());
     }
 }
