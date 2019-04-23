@@ -15,4 +15,13 @@ public class Survivor {
     public int getNumberOfWounds() {
         return this.wounds;
     }
+
+    public void getsHurt() {
+        this.wounds++;
+    }
+
+    public boolean isDead() {
+        if(wounds == 2) return true;
+        return false;
+    }
 }

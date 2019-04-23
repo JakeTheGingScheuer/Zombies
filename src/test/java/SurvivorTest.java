@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SurvivorTest {
 
@@ -15,4 +16,13 @@ public class SurvivorTest {
     public void whenSurvivorIsCreatedItHasZeroWounds() {
         assertEquals(0, survivor.getNumberOfWounds());
     }
+
+    @Test
+    public void whenASurvivorGetsWoundedTwiceTheyAreDead() {
+        survivor.getsHurt();
+        survivor.getsHurt();
+        assertTrue(survivor.isDead());
+    }
+
+
 }
