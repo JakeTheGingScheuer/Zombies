@@ -1,7 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class SurvivorTest {
 
@@ -38,7 +37,14 @@ public class SurvivorTest {
     }
 
     @Test
-    public void SurvivorCanCarryFIvePiecesOfEquipment() {
+    public void survivorCanCarryFivePiecesOfEquipment() {
         assertEquals(5, survivor.getNumberOfAvailableInventorySlots());
+    }
+
+    @Test
+    public void whenSurvivorEquipsItemItStoresItInHand() {
+        survivor.equipItem("fakeBat");
+        assertArrayEquals(new String[]{"fakeBat"}, survivor.getInHandItems().toArray());
+
     }
 }

@@ -1,15 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Survivor {
 
     private String name;
     private int wounds;
     private int numberOfActions;
-    private String[] inventory;
+    private List itemsInHand;
 
     public Survivor(String survivorName) {
         this.name = survivorName;
         this.wounds = 0;
         this.numberOfActions = 3;
-        this.inventory = new String[5];
+        this.itemsInHand = new ArrayList();
     }
 
     public String getName() {
@@ -34,6 +37,14 @@ public class Survivor {
     }
 
     public int getNumberOfAvailableInventorySlots() {
-        return inventory.length;
+        return 5;
+    }
+
+    public void equipItem(String equipmentItem) {
+        this.itemsInHand.add(equipmentItem);
+    }
+
+    public List getInHandItems() {
+        return this.itemsInHand;
     }
 }
