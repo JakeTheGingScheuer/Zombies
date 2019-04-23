@@ -36,4 +36,9 @@ public class SurvivorTest {
     public void whenASurvivorIsCreatedTheHaveThreeActionsPerTurn() {
         assertEquals(3, survivor.getNumberOfActions());
     }
+
+    @Test
+    public void SurvivorCanCarryFIvePiecesOfEquipment() {
+        assertEquals(5, survivor.getNumberOfAvailableInventorySlots());
+    }
 }

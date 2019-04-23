@@ -3,11 +3,13 @@ public class Survivor {
     private String name;
     private int wounds;
     private int numberOfActions;
+    private String[] inventory;
 
     public Survivor(String survivorName) {
         this.name = survivorName;
         this.wounds = 0;
         this.numberOfActions = 3;
+        this.inventory = new String[5];
     }
 
     public String getName() {
@@ -29,5 +31,9 @@ public class Survivor {
 
     public int getNumberOfActions() {
         return this.numberOfActions;
+    }
+
+    public int getNumberOfAvailableInventorySlots() {
+        return inventory.length;
     }
 }
