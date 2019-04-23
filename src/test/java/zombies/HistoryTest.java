@@ -13,19 +13,19 @@ public class HistoryTest {
     LocalTime fakeTime;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         fakeTime = LocalTime.now();
         history = new History(fakeTime);
     }
 
     @Test
     public void whenHistoryIsCreatedItRecordsTheCurrentTime() {
-
         assertEquals(fakeTime , history.getStartTime());
-
     }
 
     @Test
-    public void whenASurvivorIsAddedToGameANoteIsAdded() {
+    public void whenLogToHistoryIsCalledAnEventIsPassedToIt() {
+        history.logToHistory(Game.event.START);
+        assertEquals(Game.event.START, history.getLog().get(0).event);
     }
 }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class Game {
 
+    static enum event {START};
     private Map<String, Survivor> survivors;
     private Progression.level gameLevel;
     private LinkedHashMap<LocalTime, String> historyLog;
