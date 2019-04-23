@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Survivor {
@@ -7,12 +8,14 @@ public class Survivor {
     private int wounds;
     private int numberOfActions;
     private List itemsInHand;
+    private List reserveInventory;
 
     public Survivor(String survivorName) {
         this.name = survivorName;
         this.wounds = 0;
         this.numberOfActions = 3;
         this.itemsInHand = new ArrayList();
+        this.reserveInventory = new ArrayList();
     }
 
     public String getName() {
@@ -41,10 +44,15 @@ public class Survivor {
     }
 
     public void equipItem(String equipmentItem) {
-        this.itemsInHand.add(equipmentItem);
+        if(this.itemsInHand.size() < 2) this.itemsInHand.add(equipmentItem);
+        else if(this.reserveInventory.size() < 3) this.reserveInventory.add(equipmentItem);
     }
 
     public List getInHandItems() {
         return this.itemsInHand;
+    }
+
+    public List getReserveInventory() {
+        return this.reserveInventory;
     }
 }

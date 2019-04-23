@@ -45,6 +45,21 @@ public class SurvivorTest {
     public void whenSurvivorEquipsItemItStoresItInHand() {
         survivor.equipItem("fakeBat");
         assertArrayEquals(new String[]{"fakeBat"}, survivor.getInHandItems().toArray());
+    }
 
+    @Test
+    public void aSurvivorCanOnlyEquipTwoItems() {
+        survivor.equipItem("fakeBat");
+        survivor.equipItem("fakeTorch");
+        survivor.equipItem("fakeMedKit");
+        assertEquals(2, survivor.getInHandItems().size());
+    }
+
+    @Test
+    public void whenASurvivorHasTwoItemsInHandTheyPutNextItemInReserve() {
+        survivor.equipItem("fakeBat");
+        survivor.equipItem("fakeTorch");
+        survivor.equipItem("fakeMedKit");
+        assertArrayEquals(new String[]{"fakeMedKit"}, survivor.getReserveInventory().toArray());
     }
 }
