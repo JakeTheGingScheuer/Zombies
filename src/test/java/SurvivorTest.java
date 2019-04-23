@@ -24,5 +24,16 @@ public class SurvivorTest {
         assertTrue(survivor.isDead());
     }
 
+    @Test
+    public void aSurvivorCannotReceiveMoreThanTwoWounds() {
+        survivor.getsHurt();
+        survivor.getsHurt();
+        survivor.getsHurt();
+        assertEquals(2, survivor.getNumberOfWounds());
+    }
 
+    @Test
+    public void whenASurvivorIsCreatedTheHaveThreeActionsPerTurn() {
+        assertEquals(3, survivor.getNumberOfActions());
+    }
 }
