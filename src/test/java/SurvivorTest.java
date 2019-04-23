@@ -4,11 +4,15 @@ import static org.junit.Assert.assertEquals;
 
 public class SurvivorTest {
 
-    Survivor survivor;
+    Survivor survivor = new Survivor("Karl");
 
     @Test
     public void whenSurviorIsCreatedItHasAName() {
-        survivor = new Survivor("Karl");
-        assertEquals(survivor.getName(), "Karl");
+        assertEquals("Karl", survivor.getName());
+    }
+
+    @Test
+    public void whenSurvivorIsCreatedItHasZeroWounds() {
+        assertEquals(0, survivor.getNumberOfWounds());
     }
 }
