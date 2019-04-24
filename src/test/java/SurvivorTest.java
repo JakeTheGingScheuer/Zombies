@@ -79,4 +79,8 @@ public class SurvivorTest {
         survivor.getsHurt();
         assertArrayEquals(new String[]{"1", "2"}, survivor.getReserveInventory().toArray());
     }
+
+    @Test
+    public void whenASurvivorIsWOundedTheyCannotPickUpAnItemFor() {
+    }
 }
